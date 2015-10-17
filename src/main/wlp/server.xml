@@ -1,0 +1,9 @@
+<server description="liberty-maven-bluemix-sample-server">
+  <featureManager>
+    <feature>webProfile-7.0</feature>
+  </featureManager>
+
+  <httpEndpoint id="defaultHttpEndpoint" httpPort="${Port}" host="*" />
+
+  <application id="${ProjectName}" location="${ProjectName}.war" name="${ProjectName}" type="war" context-root="/" />
+</server>

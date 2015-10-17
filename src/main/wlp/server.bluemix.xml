@@ -1,0 +1,9 @@
+<server description="liberty-maven-bluemix-sample-server">
+  <featureManager>
+    <feature>jaxrs-2.0</feature>
+  </featureManager>
+
+  <httpEndpoint id="defaultHttpEndpoint" httpPort="${Port}" />
+
+  <application id="${ProjectName}" location="${ProjectName}.war" name="${ProjectName}" type="war" context-root="/" />
+</server>

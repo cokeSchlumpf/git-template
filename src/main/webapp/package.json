@@ -1,0 +1,68 @@
+{
+  "name": "git-template-ui",
+  "version": "1.0.0",
+  "description": "git-template allows you to use GitHub repositories as templates. It copies the repository and replaces variables within source files of the repository.",
+  "homepage": "http://wellnr-git-template.bluemix.com",
+  "author": "Michael Wellner <info@michaelwellner.de>",
+  "license": "MIT",
+  "main": "assets/js/main.min.js",
+  "dependencies": {
+    "classnames": "^2.1.5",
+    "fluxxor": "^1.7.3",
+    "history": "^1.12.3",
+    "node-rest-client": "^1.5.1",
+    "react": "^0.14.0",
+    "react-addons-update": "^0.14.0",
+    "react-bootstrap": "^0.27.1",
+    "react-dom": "^0.14.0",
+    "react-router": "^1.0.0-rc3"
+  },
+  "devDependencies": {
+    "babel": "^5.8.23",
+    "babel-core": "^5.8.23",
+    "babel-jest": "^5.3.0",
+    "babel-plugin-object-assign": "^1.2.1",
+    "babelify": "^6.3.0",
+    "browserify": "^11.2.0",
+    "catw": "^1.0.1",
+    "clean-css": "^3.4.5",
+    "dateformat": "1.0.11",
+    "envify": "~3.4.0",
+    "esformatter": "^0.7.3",
+    "esformatter-jsx": "^2.3.6",
+    "eslint": "^1.6.0",
+    "eslint-plugin-react": "^3.5.1",
+    "jest-cli": "^0.5.10",
+    "jsdoc": "^3.3.3",
+    "jsdoc-babel": "^0.1.0",
+    "less": "^2.5.3",
+    "less-plugin-clean-css": "^1.5.1",
+    "npm-watch": "^0.0.1"
+  },
+  "scripts": {
+    "babelify": "browserify -e ./src/main.js -t [ babelify --plugins object-assign ] > ./assets/js/main.min.js",
+    "build": "npm run format && npm test && npm run lint && npm run babelify && npm run css",
+    "build-dev": "browserify --debug -e ./src/main.js -t [ babelify --plugins object-assign --sourceMapRelative . ] > ./assets/js/main.min.js",
+    "css": "lessc --clean-css ./src/style.less ./assets/css/style.min.css",
+    "format": "esformatter -i ./src/**/*.js",
+    "lint": "eslint --fix ./src",
+    "test": "jest",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "build-dev": "src/**/*.js",
+    "css": "src/**/*.less"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testFileExtensions": [
+      "es6",
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "es6"
+    ]
+  }
+}

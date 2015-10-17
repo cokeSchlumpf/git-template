@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<project name="npm-build" default="run">
+  <target name="run" description="">
+    <property environment="env"/>
+    <antcall target="npm-tasks" />
+  </target>
+
+  <target name="npm-tasks">
+    <condition property="npm.executable" value="npm.cmd" else="npm">
+      <os family="windows" />
+    </condition>
+    
+    <exec executable="${npm.executable}" dir="${basedir}/src/main/webapp">
+      <arg value="install"/>
+    </exec>
+
+    <exec executable="${npm.executable}" dir="${basedir}/src/main/webapp">
+      <arg value="run"/>
+      <arg value="build"/>
+    </exec>
+  </target>
+</project>
